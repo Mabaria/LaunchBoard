@@ -2,12 +2,16 @@
 //
 
 #include <SFML/Graphics.hpp>
+#include "KeyboardBackground.h"
+#include "KeyLayout.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(546, 300), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
+	KeyboardBackground kbbg;
+	KeyLayout kl;
 
 	while (window.isOpen())
 	{
@@ -19,7 +23,9 @@ int main()
 		}
 
 		window.clear();
-		window.draw(shape);
+		//window.draw(shape);
+		window.draw(kbbg);
+		window.draw(kl);
 		window.display();
 	}
 
