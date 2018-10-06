@@ -2,6 +2,7 @@
 
 Key::Key(const sf::Vector2f& position)
 {
+	this->isActive = false;
 	if (!this->texture.loadFromFile("../Assets/KeyOverlay.png")) {
 		std::cout << "Error: could not load Key texture!" << std::endl;
 	}
@@ -13,6 +14,16 @@ Key::Key(const sf::Vector2f& position)
 
 Key::~Key()
 {
+}
+
+void Key::setActive(bool isActive)
+{
+	this->isActive = isActive;
+}
+
+bool Key::getActive()
+{
+	return this->isActive;
 }
 
 void Key::draw(sf::RenderTarget & target, sf::RenderStates states) const

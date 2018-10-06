@@ -20,6 +20,8 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			else if (event.type == sf::Event::KeyPressed)
+				kl.KeyPressed(event);
 		}
 
 		window.clear();

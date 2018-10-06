@@ -1,4 +1,5 @@
 #include "KeyLayout.h"
+#include <iostream>
 
 void KeyLayout::init()
 {
@@ -26,7 +27,49 @@ KeyLayout::~KeyLayout()
 
 void KeyLayout::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
-	for (unsigned int i = 0; i < this->topRowKeys.size(); i++) {
-		this->topRowKeys[i]->draw(target, states);
+	for (unsigned int i = 0; i < this->activeKeys.size(); i++) {
+		this->activeKeys[i]->draw(target, states);
+	}
+}
+
+void KeyLayout::KeyPressed(sf::Event & keyboardEvent)
+{
+	std::cout << keyboardEvent.key.code << std::endl;
+	switch (keyboardEvent.key.code) {
+
+	case sf::Keyboard::BackSlash : // Backslash = § on nordic layout
+		if (!this->topRowKeys[0]->getActive()) {
+			this->activeKeys.push_back(this->topRowKeys[0]);
+			this->topRowKeys[0]->setActive(true);
+			break;
+		}
+	case sf::Keyboard::Num1 :
+		if (!this->topRowKeys[1]->getActive()) {
+			this->activeKeys.push_back(this->topRowKeys[1]);
+			this->topRowKeys[1]->setActive(true);
+		}
+		break;
+
+	case sf::Keyboard::Num2:
+		if (!this->topRowKeys[2]->getActive()) {
+			this->activeKeys.push_back(this->topRowKeys[2]);
+			this->topRowKeys[2]->setActive(true);
+		}
+		break;
+
+	case sf::Keyboard::Num3:
+		if (!this->topRowKeys[3]->getActive()) {
+			this->activeKeys.push_back(this->topRowKeys[3]);
+			this->topRowKeys[3]->setActive(true);
+		}
+		break;
+
+	case sf::Keyboard::Num4:
+		if (!this->topRowKeys[4]->getActive()) {
+			this->activeKeys.push_back(this->topRowKeys[4]);
+			this->topRowKeys[4]->setActive(true);
+		}
+		break;
+
 	}
 }
