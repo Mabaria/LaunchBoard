@@ -19,11 +19,26 @@ Key::~Key()
 void Key::setActive(bool isActive)
 {
 	this->isActive = isActive;
+	if (isActive) {
+		sound.setBuffer(this->soundBuffer);
+		sound.play();
+		
+	}
 }
 
 bool Key::getActive()
 {
 	return this->isActive;
+}
+
+bool Key::isSoundPlaying()
+{
+	return this->sound.getStatus() == 2;
+}
+
+void Key::setAudio(std::string & filePath)
+{
+	this->soundBuffer.loadFromFile(filePath);
 }
 
 void Key::draw(sf::RenderTarget & target, sf::RenderStates states) const

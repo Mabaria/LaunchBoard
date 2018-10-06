@@ -23,6 +23,7 @@ int main()
 			else if (event.type == sf::Event::KeyPressed)
 				kl.KeyPressed(event);
 		}
+		kl.Update();
 
 		window.clear();
 		//window.draw(shape);

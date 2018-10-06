@@ -12,4 +12,5 @@ public:
 	virtual ~KeyLayout();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	void KeyPressed(sf::Event& keyboardEvent);
+	void Update();
 };
